@@ -8,11 +8,11 @@ This repo contains the Directus CMS, which is a headless CMS that provides a cle
 managing your content.
 Set up this template in your project by executing the following degit command from your project root:
 ```bash
-npx degit clarity-digital/directus-template#main directus
+npx degit clarity-digital/directus-template directus
 ```
 Copy the GitHub action from the `github-action-examples` folder
 ```bash
-cp ./github-action-examples/.github ./.github
+cp ./directus/github-action-examples/.github ./.github
 ```
 
 ## Development
