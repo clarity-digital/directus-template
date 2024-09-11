@@ -66,7 +66,6 @@ To manually update the staging environment, follow these steps similar to what t
 4. ```bash
    git pull
    ```
-   Or checkout to the branch you want to deploy, i.e.
    4. ```bash
       git checkout feat/new-feature-branch-to-stage 
       ```
@@ -95,7 +94,6 @@ The deployment of production is set up in the same way as the staging environmen
 4. ```bash
    git pull
    ```
-   Or checkout to the branch you want to deploy, i.e.
    4. ```bash
       git checkout feat/new-feature-branch-to-stage 
       ```
