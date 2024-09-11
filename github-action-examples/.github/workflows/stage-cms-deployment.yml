@@ -1,0 +1,33 @@
+name: Stage CMS changes to test server
+on:
+  pull_request:
+    branches: ['main']
+    paths: ['directus/**']
+
+jobs:
+   deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check if target branch is develop
+        id: check_target_branch
+        run: |
+          if [ "${{ github.head_ref }}" != "develop" ]; then
+            echo "Staging only automatically deploys when creating a PR from `develop` to `main`. The target branch is not 'develop'. Exiting."
+            exit 1
+          fi
+      - name: SSH commands
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.STAGING_HOST }}
+          username: ${{ secrets.USER }}
+          key: ${{ secrets.STAGING_KEY }}
+          script: |
+            cd ~/directus
+            git pull
+            source ~/.nvm/nvm.sh
+            nvm install
+            nvm use
+            npm ci
+            docker compose up -d
+            npm run apply

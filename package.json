@@ -1,0 +1,20 @@
+{
+  "name": "directus",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "docker compose up -d",
+    "stop": "docker compose down",
+    "apply": "./apply-snapshot.sh",
+    "bootstrap": "docker exec directus npx directus bootstrap",
+    "create-snapshot": "docker exec directus npx directus schema snapshot snapshots/\"$(date \"+%F\")\"-snapshot-\"$(date \"+%s\")\".yaml"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "engines": {
+    "node": ">=20.9.0"
+  }
+}
+
