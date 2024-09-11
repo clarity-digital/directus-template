@@ -12,7 +12,7 @@ npx degit clarity-digital/directus-template directus
 ```
 Copy the GitHub action from the `github-action-examples` folder
 ```bash
-cp ./directus/github-action-examples/.github ./.github
+cp -r ./directus/github-action-examples/.github ./.github
 ```
 
 ## Development
